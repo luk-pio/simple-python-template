@@ -19,7 +19,14 @@ setup(
     py_modules=[splitext(basename(path))[0] for path in glob('src/*.py')],
     python_requires='>=3.8',
     include_package_data=True,
-    install_requires=[],
+    install_requires=[
+        'langchain>=0.0.330',
+        'langchain_experimental>=0.0.37',
+        'anthropic>=0.5.0',
+        'playwright>=1.39.0',
+        'beautifulsoup4>=4.12.2',
+        'tiktoken>=0.5.1',
+    ],
     extras_require={
         'test': [
             'pytest>=7.4.3',
@@ -30,7 +37,8 @@ setup(
     ],
     entry_points={
         'console_scripts': [
-            'cli = your_project.cli:main',
+            'get_articles_on_topic = your_project.cli:get_articles_on_topic',
+            'get_analysis = your_project.cli:get_analysis_from_url',
         ]
     },
 )
